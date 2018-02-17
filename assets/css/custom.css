@@ -1,0 +1,31 @@
+.f1-step.active .f1-step-icon {
+    background: #000;
+}
+.f1-step.active p {
+    color: #000;
+}
+.f1-progress-line {
+    background: #000;
+}
+button.btn.btn-next, button.btn.btn-next:focus, button.btn.btn-next:active:focus, button.btn.btn-next.active:focus {
+    background: #ea3f33;
+}
+.img_colorfill {
+    filter: drop-shadow(1px 0px 0px white);
+}
+input, select, textarea, textarea.form-control {
+    width: 100%;
+}
+button.btn.btn-submit, button.btn.btn-submit:focus, button.btn.btn-submit:active:focus, button.btn.btn-submit.active:focus {
+    background: #000;
+}
+input, textarea, select, textarea.form-control {
+    height: 44px;
+}
+.form-control {
+    height: 44px;
+}
+button.btn {
+    margin: 3px;
+    margin-right: 3px;
+}
