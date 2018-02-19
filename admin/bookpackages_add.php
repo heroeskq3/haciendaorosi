@@ -12,8 +12,8 @@ $section_homedir     = '../';
 <?php require_once 'header.php';?>
 <?php
 if ($form_add) {
-    class_bookPackagesAdd($Name, $Price, $IV, $IS, $VigenciaDel, $VigenciaAl, $SectorId, $Status);
-    header('Location: book_packages.php');
+    class_bookPackagesAdd($PackCode, $Name, $Price, $IV, $IS, $VigenciaDel, $VigenciaAl, $SectorId, $Status);
+    header('Location: bookpackages_list.php');
     die();
 }
 
@@ -28,6 +28,17 @@ for ($i = 1; $i < 51; ++$i) {
     $array_rowsperpage[] = array('label' => $i, 'value' => $i, 'selected' => $Order);
 }
 
+//SI / NO
+$array_IV   = array();
+$array_IV[] = array('label' => 'Si', 'value' => '1', 'selected' => null);
+$array_IV[] = array('label' => 'No', 'value' => '0', 'selected' => null);
+
+//SI / NO
+$array_IS   = array();
+$array_IS[] = array('label' => 'Si', 'value' => '1', 'selected' => null);
+$array_IS[] = array('label' => 'No', 'value' => '0', 'selected' => null);
+
+
 //sector
 $array_sector = array();
 for ($i = 1; $i < 51; ++$i) {
@@ -37,10 +48,11 @@ for ($i = 1; $i < 51; ++$i) {
 //Form Generator
 $formFields = array(
     'form_add'    => array('inputType' => 'hidden', 'required' => false, 'position' => 0, 'name' => 'form_add', 'value' => 1),
+    'PackCode'    => array('inputType' => 'text', 'required' => true, 'position' => 1, 'name' => 'PackCode', 'value' => $PackCode),
     'Name'        => array('inputType' => 'text', 'required' => true, 'position' => 1, 'name' => 'Name', 'value' => $Name),
     'Price'       => array('inputType' => 'text', 'required' => true, 'position' => 1, 'name' => 'Price', 'value' => $Details),
-    'IV'          => array('inputType' => 'select', 'required' => false, 'position' => 1, 'name' => 'IV', 'value' => $array_rowsperpage),
-    'IS'          => array('inputType' => 'select', 'required' => false, 'position' => 1, 'name' => 'IS', 'value' => $array_rowsperpage),
+    'IV'          => array('inputType' => 'select', 'required' => false, 'position' => 1, 'name' => 'IV', 'value' => $array_IV),
+    'IS'          => array('inputType' => 'select', 'required' => false, 'position' => 1, 'name' => 'IS', 'value' => $array_IS),
     'VigenciaDel' => array('inputType' => 'date', 'required' => false, 'position' => 1, 'name' => 'VigenciaDel', 'value' => $VigenciaDel),
     'VigenciaAl'  => array('inputType' => 'date', 'required' => false, 'position' => 1, 'name' => 'VigenciaAl', 'value' => $VigenciaAl),
     'Sector'      => array('inputType' => 'select', 'required' => false, 'position' => 1, 'name' => 'SectorId', 'value' => $array_sector),

@@ -293,6 +293,10 @@ if (isset($_SESSION['SurveyId'])) {
 }
 
 //Booking
+$PackCode = null;
+if (isset($_POST['PackCode'])) {
+    $PackCode = $_POST['PackCode'];
+}
 $VigenciaAl = null;
 if (isset($_POST['VigenciaAl'])) {
     $VigenciaAl = $_POST['VigenciaAl'];

@@ -26,7 +26,6 @@ function class_formBooking()
         'Date'       => array('inputType' => 'date', 'required' => true, 'position' => 2, 'name' => 'Date', 'value' => date("Y-m-d")),
         'Childs'     => array('inputType' => 'select', 'required' => false, 'position' => 3, 'name' => 'Childs', 'value' => $array_qnty),
         'Adults'     => array('inputType' => 'select', 'required' => false, 'position' => 3, 'name' => 'Adults', 'value' => $array_qnty),
-        'Seniors'    => array('inputType' => 'select', 'required' => false, 'position' => 3, 'name' => 'Seniors', 'value' => $array_qnty),
     );
 
     // define buttons for form

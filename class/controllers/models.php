@@ -96,6 +96,7 @@ require_once PATH_MODELS . 'class_tableuserstypelist.php';
 
 //STATUS
 require_once PATH_MODELS . 'class_statusInfo.php';
+require_once PATH_MODELS . 'class_infosino.php';
 require_once PATH_MODELS . 'class_statusIcon.php';
 
 //MENU
@@ -130,7 +131,10 @@ require_once PATH_MODELS . 'class_surveyanswersupdate.php';
 
 //booking
 require_once PATH_MODELS . 'class_bookpackagesadd.php';
+require_once PATH_MODELS . 'class_bookpackagesupdate.php';
+require_once PATH_MODELS . 'class_bookpackagesdelete.php';
 require_once PATH_MODELS . 'class_bookpackageslist.php';
+require_once PATH_MODELS . 'class_bookpackagesinfo.php';
 
 //PRIVILEGES
 require_once PATH_MODELS . 'class_privilegesinfo.php';

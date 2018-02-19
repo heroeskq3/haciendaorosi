@@ -42,6 +42,9 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
         if ($row['position'] == 3) {
             $results .= '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">';
         }
+        if ($row['position'] == 4) {
+            $results .= '<div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">';
+        }
 
         if ($row['position']) {
 
@@ -142,6 +145,14 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
         if ($row['position'] == 3) {
             $results .= '</div>'; //col end
             if ($pos == 2) {
+                //clearfix end
+                $results .= '</div>';
+                $i = 0; //reset position
+            }
+        }
+        if ($row['position'] == 4) {
+            $results .= '</div>'; //col end
+            if ($pos == 3) {
                 //clearfix end
                 $results .= '</div>';
                 $i = 0; //reset position
