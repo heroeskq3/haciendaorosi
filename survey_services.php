@@ -52,7 +52,7 @@ function class_surveyservices($Country,$SurveyId){
             'Previous' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' =>'button', 'value' =>'previous', 'action' => 'index.php'),
             'Next'     => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' =>'button', 'value' =>'next', 'action' => null),
         );
-        class_surveyButtons($formButtons);
+        echo class_formButtons($formButtons);
         ?>
         </div>
 </fieldset>

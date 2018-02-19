@@ -1,5 +1,7 @@
-<?php function class_tableGenerator($array, $params){ ?>
-
+<?php function class_tableGenerator($array, $params, $formsParams, $formButtons){ ?>
+<?php if($formsParams){ ?>
+<form action="<?php echo $formsParams['action'];?>" method="<?php echo $formsParams['method'];?>">
+    <?php } ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -78,6 +80,15 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+<?php
+if(isset($formButtons)){
+    echo class_formButtons($formButtons);
+}
+?>
+<?php if($formsParams){ ?>
+</form>
+    <?php } ?>
+
     <!-- DataTables JavaScript -->
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>

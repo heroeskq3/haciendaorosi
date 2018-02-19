@@ -34,6 +34,7 @@ function class_formGenerator($formParams, $formFields, $formButtons)
                                         <?php if ($label) {?>
                                         <?php if ($row['inputType'] == 'label') {?>
                                             <h4><?php echo $label; ?></h4>
+                                        <?php } elseif($row['inputType'] == 'checkbox') {?>
                                         <?php } else {?>
                                             <label><?php echo $label; ?></label>
                                             <?php }?>
@@ -56,7 +57,7 @@ function class_formGenerator($formParams, $formFields, $formButtons)
                                 <?php }?>
                                 <?php if ($formButtons) {?>
                             <p>
-                                <?php echo class_surveyButtons($formButtons); ?>
+                                <?php echo class_formButtons($formButtons); ?>
                             </p>
                                 <?php }?>
                                 <?php if ($formParams['method']) {?>

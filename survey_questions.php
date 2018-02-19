@@ -31,7 +31,7 @@ $formButtons = array(
     'Previous' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'previous', 'action' => 'survey_services.php'),
     'Next'     => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'next', 'action' => null),
 );
-class_surveyButtons($formButtons);
+echo class_formButtons($formButtons);
 ?>
             </div>
         </fieldset>

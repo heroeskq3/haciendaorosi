@@ -291,4 +291,30 @@ $SurveyId = $SurveyId;
 if (isset($_SESSION['SurveyId'])) {
     $SurveyId = $_SESSION['SurveyId'];
 }
+
+//Booking
+$VigenciaAl = null;
+if (isset($_POST['VigenciaAl'])) {
+    $VigenciaAl = $_POST['VigenciaAl'];
+}
+$VigenciaDel = null;
+if (isset($_POST['VigenciaDel'])) {
+    $VigenciaDel = $_POST['VigenciaDel'];
+}
+$SectorId = null;
+if (isset($_POST['SectorId'])) {
+    $SectorId = $_POST['SectorId'];
+}
+$IS = null;
+if (isset($_POST['IS'])) {
+    $IS = $_POST['IS'];
+}
+$IV = null;
+if (isset($_POST['IV'])) {
+    $IV = $_POST['IV'];
+}
+$Price = null;
+if (isset($_POST['Price'])) {
+    $Price = $_POST['Price'];
+}
 ?>

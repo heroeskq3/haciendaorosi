@@ -104,11 +104,6 @@ function class_surveyRegister()
         'Status'                          => array('inputType' => 'hidden', 'required' => false, 'position' => 0, 'name' => 'Status', 'value' => isset($Status)),
     );
 
-    // define buttons for form
-    // $formButtons = array(
-    //     'Submit'     => array('buttonType' => 'submit', 'class' => null, 'name' => null, 'value' => null, 'action' => null),
-    //     'Cancel' => array('buttonType' => 'link', 'action' => null),
-    // );
     $formButtons = null;
 
     //set params for form
@@ -134,7 +129,7 @@ $formButtons = array(
     'Previous' => array('buttonType' => 'link', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'previous', 'action' => 'survey_terms.php'),
     'Next'     => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'next', 'action' => null),
 );
-class_surveyButtons($formButtons);
+echo class_formButtons($formButtons);
 ?>
         </div>
     </fieldset>

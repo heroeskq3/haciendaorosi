@@ -70,8 +70,11 @@ require_once PATH_MODELS . 'class_filesupload.php';
 require_once PATH_MODELS . 'class_formgenerator.php';
 require_once PATH_MODELS . 'class_formgenerator2.php';
 require_once PATH_MODELS . 'class_forminput.php';
-require_once PATH_MODELS . 'class_formbuttons.php';
 require_once PATH_MODELS . 'class_formscripts.php';
+
+//forms buttons
+require_once PATH_MODELS . 'class_formbuttons.php';
+require_once PATH_MODELS . 'class_formbuttonstype.php';
 
 //TABLES
 require_once PATH_MODELS . 'class_tablegenerator.php';
@@ -103,9 +106,6 @@ require_once PATH_MODELS . 'class_menudelete.php';
 require_once PATH_MODELS . 'class_menuupdate.php';
 require_once PATH_MODELS . 'class_submenulist.php';
 
-//survey sys
-require_once PATH_MODELS . 'class_surveybuttons.php';
-
 //Survey - Services
 require_once PATH_MODELS . 'class_surveylist.php';
 require_once PATH_MODELS . 'class_surveyinfo.php';
@@ -128,6 +128,10 @@ require_once PATH_MODELS . 'class_surveyanswersadd.php';
 require_once PATH_MODELS . 'class_surveyanswersdelete.php';
 require_once PATH_MODELS . 'class_surveyanswersupdate.php';
 
+//booking
+require_once PATH_MODELS . 'class_bookpackagesadd.php';
+require_once PATH_MODELS . 'class_bookpackageslist.php';
+
 //PRIVILEGES
 require_once PATH_MODELS . 'class_privilegesinfo.php';
 require_once PATH_MODELS . 'class_privilegeslist.php';
@@ -147,34 +151,3 @@ require_once PATH_MODELS . 'class_iconslist.php';
 
 //SECTIONS
 require_once PATH_MODELS . 'class_sectioninfo.php';
-
-//CUSTOM SECTIONS
-/*
-//SECTIONS - VISITS
-require_once PATH_MODELS . 'class_visitslist.php';
-require_once PATH_MODELS . 'class_visitsadd.php';
-require_once PATH_MODELS . 'class_visitsdel.php';
-require_once PATH_MODELS . 'class_visitsupdate.php';
-
-//SECTIONS - CUSTOMERS
-require_once PATH_MODELS . 'class_customerslist.php';
-require_once PATH_MODELS . 'class_customersadd.php';
-require_once PATH_MODELS . 'class_customersdel.php';
-require_once PATH_MODELS . 'class_customersupdate.php';
-
-//SECTIONS - AGENTS
-require_once PATH_MODELS . 'class_agentslist.php';
-require_once PATH_MODELS . 'class_agentsadd.php';
-require_once PATH_MODELS . 'class_agentsdel.php';
-require_once PATH_MODELS . 'class_agentsupdate.php';
-
-
-//SECTIONS - NOTIFY
-require_once PATH_MODELS . 'class_notify.php';
-
-//SECTIONS - REPORTS
-require_once PATH_MODELS . 'class_resports.php';
-
-//SECTIONS - HOME
-require_once PATH_MODELS . 'class_dashboard.php';
-*/

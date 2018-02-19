@@ -27,7 +27,7 @@ if ($button == 'home') {
         $formButtons = array(
             'Home' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' =>'button', 'value' =>'home', 'action' => 'index.php'),
         );
-        class_surveyButtons($formButtons);
+        echo class_formButtons($formButtons);
         ?>
         </div>
     </fieldset>

@@ -156,7 +156,7 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
 
     if ($formButtons) {
         $results .= '<hr>';
-        $results .= class_surveyButtons($formButtons);
+        $results .= class_formButtons($formButtons);
     }
 
     $results .= '</div>';

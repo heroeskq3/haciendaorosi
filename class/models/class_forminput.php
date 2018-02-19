@@ -22,7 +22,8 @@ function class_formInput($inputType, $name, $label, $value, $required)
 
     //SELECT INPUT
     if ($inputType == 'select') {
-        $results .= '<select class="select-with-search form-control pmd-select2" name="' . $name . '" '.$required.'>';
+        //$results .= '<select class="select-with-search form-control pmd-select2" data-live-search="true" name="' . $name . '" '.$required.'>';
+        $results .= '<select class="select-with-search form-control pmd-select2 selectpicker" data-show-subtext="true" data-live-search="true" name="' . $name . '" '.$required.'>';
         $results .= '<option value="">Select</option>';
         if($value){
             foreach ($value as $row_option) {
@@ -42,10 +43,15 @@ function class_formInput($inputType, $name, $label, $value, $required)
         }else{
             $checked = null;
         }
+
         $results .= '<label class="pmd-checkbox checkbox-pmd-ripple-effect">';
         $results .= '<input name="' . $name . '" type="checkbox" value="1" '.$checked.'>';
-        $results .= '<span>' . $label . '</span>';
+        $results .= '<span> ' . $label . '</span>';
         $results .= '</label>';
+
+
+
+
     }
     //CHECKBX INPUT
     if ($inputType == 'radio') {

@@ -11,13 +11,6 @@ $section_homedir     = null;
 $step                = 3;
 ?>
 <?php require_once 'header.php';?>
-<?php
-// define buttons for form
-$formButtons = array(
-    'Back' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'back', 'action' => null),
-    'Next' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'next', 'action' => null),
-);
-?>
 <h3>Packages</h3>
 <hr>
 <?php
@@ -47,37 +40,22 @@ function class_tableMainList($array)
         foreach ($array['response'] as $row_array) {
 
             //childs
-            $surveyquestionslist = class_surveyQuestionsList($row_array['Id']);
-            $array_childs        = $surveyquestionslist['response'];
-
-            //suma valores
-            $suma_answers = 0;
-            if($array_childs){
-                foreach ($array_childs as $row_surveyquestions) {
-                    $surveyanswers = class_surveyAnswersList($row_surveyquestions['Id']);
-                    if($surveyanswers['rows']){
-                        foreach ($surveyanswers['response'] as $row_surveyanswers) {
-                        $suma_answers = $suma_answers+$row_surveyanswers['Points'];
-                        }
-                    }
-                }
-            }
+            $array_childs        = null;
 
             $results[] = array(
                 //Define custom Patern Table Alias Keys => Values
-                'Name'      => $row_array['Name'],
-                'Price' => $surveyquestionslist['rows'],
-                'IV'     => $suma_answers.' Points',
-                'IS'  => $row_array['Rows'],
-                'VigenciaDel'  => $row_array['Rows'],
-                'VigenciaAl'  => $row_array['Rows'],
-                'Sector'  => $row_array['Rows'],
-                'Status'    => class_statusInfo($row_array['Status']),
+                'Name'        => $row_array['Name'],
+                'Price'       => $row_array['Price'],
+                'IV'          => $row_array['IV'],
+                'IS'          => $row_array['IS'],
+                'VigenciaDel' => $row_array['VigenciaDel'],
+                'VigenciaAl'  => $row_array['VigenciaAl'],
+                'Sector'      => $row_array['SectorId'],
 
                 //Define Index, Status, Childs
-                'index'     => $row_array['Id'],
-                'status'    => $row_array['Status'], //use = 1 or 0
-                'childs'    => $array_childs, //define array
+                'index'       => $row_array['Id'],
+                'status'      => $row_array['Status'], //use = 1 or 0
+                'childs'      => $array_childs, //define array
             );
         }
     }
@@ -85,23 +63,35 @@ function class_tableMainList($array)
     return $results;
 }
 
-//survey list
-$surveylist  = class_surveyList();
-$table_array = class_tableMainList($surveylist);
+//book packages list
+$bookpackageslist  = class_bookPackagesList();
+$table_array = class_tableMainList($bookpackageslist);
 
 //Table params
 $table_params = array(
-    'name'        => "List",
-    'searchbar'   => true,
+    'name'        => 'List',
+    'searchbar'   => null,
     'rowsbypage'  => 10, //0 = when childs
-    'showactions' => true,
-    'showmore'    => true,
+    'showactions' => false,
+    'showmore'    => false,
     'checkbox'    => 0,
 );
 
-//generate table list
-class_tableGenerator($table_array, $table_params);
-?>
-<?php echo class_surveyButtons($formButtons);?>
+//set params for form
+$formParams = array(
+    'name'    => null,
+    'action'  => 'book_register.php',
+    'method'  => 'post',
+    'enctype' => null,
+);
 
+// define buttons for form
+$formButtons = array(
+    'Back' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'back', 'action' => null),
+    'Next' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'next', 'action' => null),
+);
+
+//generate table list
+class_tableGenerator($table_array, $table_params, $formParams, $formButtons);
+?>
 <?php require_once 'footer.php';?>

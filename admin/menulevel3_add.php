@@ -1,27 +1,19 @@
 <?php
-//Section Parameters
-$section_tittle      = "Menu Manager";
-$section_description = null;
-$section_restrict    = 1;
-$section_navbar      = 1;
-$section_sidebar     = 1;
-$section_searchbar   = 0;
-$section_style       = 1;
-$section_homedir     = '../';
-?>
-<?php require_once 'header.php';?>
-<?php
+//menu info
+$menuinfo     = class_menuInfo($Id);
+$row_menuinfo = $menuinfo['response'][0];
+
 if ($form_add) {
     $menuadd = class_menuAdd($Name, $Description, $Url, $Icon, $MenuId, $Order, $Status);
-    header('Location: menu_list.php');
+    header('Location: menulevel3.php?Id=' . $MenuId);
     die();
 }
 
 //Menu List
-$menulist       = class_menuList(null);
+$menulist       = class_menuList($row_menuinfo['MenuId']);
 $array_menulist = array();
 foreach ($menulist['response'] as $row_menulist) {
-    $array_menulist[] = array('label' => $row_menulist['Name'], 'value' => $row_menulist['Id'], 'selected' => $MenuId);
+    $array_menulist[] = array('label' => $row_menulist['Name'], 'value' => $row_menulist['Id'], 'selected' => $Id);
 }
 
 //Icon List
@@ -62,7 +54,7 @@ $formFields = array(
 // define buttons for form
 $formButtons = array(
     'Submit' => array('buttonType' => 'submit', 'class' => null, 'name' => null, 'value' => null, 'action' => null),
-    'Back'   => array('buttonType' => 'cancel', 'class' => null, 'name' => null, 'value' => null, 'action' => null),
+    'Back'   => array('buttonType' => 'link', 'class' => null, 'name' => null, 'value' => null, 'action' => 'menulevel2.php?Id='.$row_menuinfo['MenuId']),
 );
 
 //set params for form
@@ -74,5 +66,3 @@ $formParams = array(
 );
 
 class_formGenerator($formParams, $formFields, $formButtons);
-?>
-<?php require_once 'footer.php';

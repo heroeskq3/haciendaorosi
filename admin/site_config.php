@@ -69,8 +69,8 @@ $formFields = array(
 
 // define buttons for form
 $formButtons = array(
-    'Submit'     => array('buttonType' => 'submit', 'class' => null, 'name' => null, 'value' => null, 'action' => null),
-    'Cancel' => array('buttonType' => 'cancel', 'action' => null),
+    'Submit' => array('buttonType' => 'submit', 'class' => null, 'name' => null, 'value' => null, 'action' => null),
+    'Back'   => array('buttonType' => 'cancel', 'class' => null, 'name' => null, 'value' => null, 'action' => null),
 );
 
 //set params for form
@@ -81,6 +81,6 @@ $formParams = array(
     'enctype' => 'multipart/form-data',
 );
 
-echo class_formGenerator2($formParams, $formFields, $formButtons);
+echo class_formGenerator($formParams, $formFields, $formButtons);
 ?>
 <?php require_once 'footer.php';
