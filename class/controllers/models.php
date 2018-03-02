@@ -14,6 +14,10 @@ require_once PATH_MODELS . 'class_headersteps.php';
 //SCRIPTS
 require_once PATH_MODELS . 'class_scripts.php';
 
+//FORMATS
+require_once PATH_MODELS . 'class_formatsmoney.php';
+require_once PATH_MODELS . 'class_formatsmoney2.php';
+
 //TEMPLATE
 require_once PATH_MODELS . 'class_contentarea.php';
 require_once PATH_MODELS . 'class_modals.php';
@@ -129,12 +133,92 @@ require_once PATH_MODELS . 'class_surveyanswersadd.php';
 require_once PATH_MODELS . 'class_surveyanswersdelete.php';
 require_once PATH_MODELS . 'class_surveyanswersupdate.php';
 
-//booking
+//booking - Packages
 require_once PATH_MODELS . 'class_bookpackagesadd.php';
 require_once PATH_MODELS . 'class_bookpackagesupdate.php';
 require_once PATH_MODELS . 'class_bookpackagesdelete.php';
 require_once PATH_MODELS . 'class_bookpackageslist.php';
 require_once PATH_MODELS . 'class_bookpackagesinfo.php';
+
+//booking - capacity
+require_once PATH_MODELS . 'class_bookcapacityadd.php';
+require_once PATH_MODELS . 'class_bookcapacityupdate.php';
+require_once PATH_MODELS . 'class_bookcapacitydelete.php';
+require_once PATH_MODELS . 'class_bookcapacitylist.php';
+require_once PATH_MODELS . 'class_bookcapacityinfo.php';
+
+//booking - customers
+require_once PATH_MODELS . 'class_bookcustomersadd.php';
+require_once PATH_MODELS . 'class_bookcustomersupdate.php';
+require_once PATH_MODELS . 'class_bookcustomersdelete.php';
+require_once PATH_MODELS . 'class_bookcustomerslist.php';
+require_once PATH_MODELS . 'class_bookcustomersinfo.php';
+
+//booking - cxc
+require_once PATH_MODELS . 'class_bookcxcadd.php';
+require_once PATH_MODELS . 'class_bookcxcupdate.php';
+require_once PATH_MODELS . 'class_bookcxcdelete.php';
+require_once PATH_MODELS . 'class_bookcxclist.php';
+require_once PATH_MODELS . 'class_bookcxcinfo.php';
+
+//booking - dealers
+require_once PATH_MODELS . 'class_bookdealersadd.php';
+require_once PATH_MODELS . 'class_bookdealersupdate.php';
+require_once PATH_MODELS . 'class_bookdealersdelete.php';
+require_once PATH_MODELS . 'class_bookdealerslist.php';
+require_once PATH_MODELS . 'class_bookdealersinfo.php';
+
+//booking - limits
+require_once PATH_MODELS . 'class_booklimitsadd.php';
+require_once PATH_MODELS . 'class_booklimitsupdate.php';
+require_once PATH_MODELS . 'class_booklimitsdelete.php';
+require_once PATH_MODELS . 'class_booklimitslist.php';
+require_once PATH_MODELS . 'class_booklimitsinfo.php';
+
+//booking - params
+require_once PATH_MODELS . 'class_bookparamsadd.php';
+require_once PATH_MODELS . 'class_bookparamsupdate.php';
+require_once PATH_MODELS . 'class_bookparamsdelete.php';
+require_once PATH_MODELS . 'class_bookparamslist.php';
+require_once PATH_MODELS . 'class_bookparamsinfo.php';
+
+//booking - promos
+require_once PATH_MODELS . 'class_bookpromosadd.php';
+require_once PATH_MODELS . 'class_bookpromosupdate.php';
+require_once PATH_MODELS . 'class_bookpromosdelete.php';
+require_once PATH_MODELS . 'class_bookpromoslist.php';
+require_once PATH_MODELS . 'class_bookpromosinfo.php';
+
+//booking - reserves
+require_once PATH_MODELS . 'class_bookreservesadd.php';
+require_once PATH_MODELS . 'class_bookreservesupdate.php';
+require_once PATH_MODELS . 'class_bookreservesdelete.php';
+require_once PATH_MODELS . 'class_bookreserveslist.php';
+require_once PATH_MODELS . 'class_bookreservesinfo.php';
+
+//booking - sectors
+require_once PATH_MODELS . 'class_booksectorsadd.php';
+require_once PATH_MODELS . 'class_booksectorsupdate.php';
+require_once PATH_MODELS . 'class_booksectorsdelete.php';
+require_once PATH_MODELS . 'class_booksectorslist.php';
+require_once PATH_MODELS . 'class_booksectorsinfo.php';
+
+//booking - summary
+require_once PATH_MODELS . 'class_booksummaryadd.php';
+require_once PATH_MODELS . 'class_booksummaryupdate.php';
+require_once PATH_MODELS . 'class_booksummarydelete.php';
+require_once PATH_MODELS . 'class_booksummarylist.php';
+require_once PATH_MODELS . 'class_booksummaryinfo.php';
+
+//booking - type
+require_once PATH_MODELS . 'class_booktypeadd.php';
+require_once PATH_MODELS . 'class_booktypeupdate.php';
+require_once PATH_MODELS . 'class_booktypedelete.php';
+require_once PATH_MODELS . 'class_booktypelist.php';
+require_once PATH_MODELS . 'class_booktypeinfo.php';
+
+//booking - Customers
+require_once PATH_MODELS . 'class_bookreservationsadd.php';
 
 //PRIVILEGES
 require_once PATH_MODELS . 'class_privilegesinfo.php';

@@ -23,11 +23,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <span class="li-text">
-                                Put some text or
+                                <?php echo CONFIG_METATITTLE; ?>
                             </span>
-                    <a href="#"><strong>links</strong></a>
+                    <a href="CONFIG_URL"><strong>WebSite</strong></a>
                     <span class="li-text">
-                                here, or some icons:
+                                Todos los derechos reservados 2018:
                             </span>
                     <span class="li-social">
                                 <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>

@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="index.php">
-            <img src="<?php echo PATH_ASSETS.'img/logos/'.CONFIG_LOGOHEADER3;?>" alt="" height="30">        
+            <img src="<?php echo PATH_RESOURCES.'logos/'.CONFIG_LOGOHEADER3;?>" alt="" height="30">        
     </a>
 </div>
 <!-- /.navbar-header -->

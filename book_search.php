@@ -1,49 +1,33 @@
 <?php
-//Section Parameters
-$section_tittle      = "Booking";
-$section_description = null;
-$section_restrict    = 1;
-$section_navbar      = 1;
-$section_sidebar     = 1;
-$section_searchbar   = 0;
-$section_style       = 1;
-$section_homedir     = null;
-$step                = 2;
-
-require_once 'header.php';
-
-function class_formBooking()
-{
-    //Qty
-    $array_qnty = array();
-    for ($i = 1; $i < 6; ++$i) {
-        $array_qnty[] = array('label' => $i, 'value' => $i, 'selected' => null);
-    }
-
-    $formFields = array(
-        'form_add'   => array('inputType' => 'hidden', 'required' => false, 'position' => 0, 'name' => 'form_add', 'value' => 1),
-        'Promo Code' => array('inputType' => 'text', 'required' => false, 'position' => 2, 'name' => 'PromoCode', 'value' => isset($PromoCode)),
-        'Date'       => array('inputType' => 'date', 'required' => true, 'position' => 2, 'name' => 'Date', 'value' => date("Y-m-d")),
-        'Childs'     => array('inputType' => 'select', 'required' => false, 'position' => 3, 'name' => 'Childs', 'value' => $array_qnty),
-        'Adults'     => array('inputType' => 'select', 'required' => false, 'position' => 3, 'name' => 'Adults', 'value' => $array_qnty),
-    );
-
-    // define buttons for form
-    $formButtons = array(
-        'Search' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => null, 'action' => null),
-    );
-
-    //set params for form
-    $formParams = array(
-        'name'    => 'Booking',
-        'action'  => 'book_packages.php',
-        'method'  => 'post',
-        'enctype' => null,
-    );
-
-    class_formGenerator2($formParams, $formFields, $formButtons);
+//Qty
+$array_adults = array();
+for ($i = 1; $i < 6; ++$i) {
+    $array_adults[] = array('label' => $i, 'value' => $i, 'selected' => $Adults);
 }
 
-class_formBooking();
+//Qty
+$array_childs = array();
+for ($i = 0; $i < 6; ++$i) {
+    $array_childs[] = array('label' => $i, 'value' => $i, 'selected' => $Childs);
+}
 
-require_once 'footer.php';
+$formFields = array(
+    'Date'       => array('inputType' => 'date', 'required' => true, 'position' => 5, 'name' => 'Date', 'value' => $Date),
+    'Adults'     => array('inputType' => 'select', 'required' => true, 'position' => 5, 'name' => 'Adults', 'value' => $array_adults),
+    'Childs'     => array('inputType' => 'select', 'required' => true, 'position' => 5, 'name' => 'Childs', 'value' => $array_childs),
+    'Promo Code' => array('inputType' => 'text', 'required' => false, 'position' => 5, 'name' => 'PromoCode', 'value' => $PromoCode),
+    'Search'     => array('inputType' => 'submit', 'required' => true, 'position' => 5, 'name' => 'Search', 'value' => null),
+);
+
+// define buttons for form
+$formButtons = null;
+
+//set params for form
+$formParams = array(
+    'name'    => 'Check Availability',
+    'action'  => '',
+    'method'  => 'post',
+    'enctype' => null,
+);
+
+class_formGenerator2($formParams, $formFields, $formButtons);

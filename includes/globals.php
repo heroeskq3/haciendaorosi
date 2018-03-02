@@ -14,21 +14,21 @@ if (isset($_SESSION['phperror'])) {
 //PRIVIL
 $Add = null;
 if (isset($_POST['Add'])) {
-    $Add = (int)$_POST['Add'];
+    $Add = (int) $_POST['Add'];
 }
 $Update = null;
 if (isset($_POST['Update'])) {
-    $Update = (int)$_POST['Update'];
+    $Update = (int) $_POST['Update'];
 }
 $Delete = null;
 if (isset($_POST['Delete'])) {
-    $Delete = (int)$_POST['Delete'];
+    $Delete = (int) $_POST['Delete'];
 }
 
 //USERS DETAILS
 $UsersId = null;
 if (isset($_POST['UsersId'])) {
-    $UsersId = (int)$_POST['UsersId'];
+    $UsersId = (int) $_POST['UsersId'];
 }
 $FirstName = null;
 if (isset($_POST['FirstName'])) {
@@ -71,7 +71,7 @@ if (isset($_POST['City'])) {
     $City = $_POST['City'];
 }
 $Address = null;
-if (isset($_POST['Address'])) {
+if (isset($_POST['Address'])){
     $Address = $_POST['Address'];
 }
 $Details = null;
@@ -114,7 +114,7 @@ if (isset($_POST['Status'])) {
 //USERS
 $UsersIndex = null;
 if (isset($_POST['UsersIndex'])) {
-    $UsersIndex = (int)$_POST['UsersIndex'];
+    $UsersIndex = (int) $_POST['UsersIndex'];
 }
 $UserName = null;
 if (isset($_POST['UserName'])) {
@@ -155,7 +155,6 @@ if (isset($_POST['Admin'])) {
     $Admin = ($_POST['Admin']);
 }
 
-
 //FORM ACTIONS
 $form_add = null;
 if (isset($_POST['form_add'])) {
@@ -165,7 +164,6 @@ $form_update = null;
 if (isset($_POST['form_update'])) {
     $form_update = $_POST['form_update'];
 }
-
 
 //FILES UPLOAD
 $File = null;
@@ -186,23 +184,23 @@ if (isset($_GET['action'])) {
 $Name = null;
 if (isset($_POST['Name'])) {
     $Name = $_POST['Name'];
-} 
+}
 $Description = null;
 if (isset($_POST['Description'])) {
     $Description = $_POST['Description'];
-} 
+}
 $Url = null;
 if (isset($_POST['Url'])) {
     $Url = $_POST['Url'];
-} 
+}
 $MenuId = null;
 if (isset($_POST['MenuId'])) {
     $MenuId = $_POST['MenuId'];
-} 
+}
 $Icon = null;
 if (isset($_POST['Icon'])) {
     $Icon = $_POST['Icon'];
-} 
+}
 $Order = null;
 if (isset($_POST['Order'])) {
     $Order = $_POST['Order'];
@@ -297,28 +295,130 @@ $PackCode = null;
 if (isset($_POST['PackCode'])) {
     $PackCode = $_POST['PackCode'];
 }
-$VigenciaAl = null;
-if (isset($_POST['VigenciaAl'])) {
-    $VigenciaAl = $_POST['VigenciaAl'];
-}
-$VigenciaDel = null;
-if (isset($_POST['VigenciaDel'])) {
-    $VigenciaDel = $_POST['VigenciaDel'];
+$PackageId = null;
+if (isset($_POST['PackageId'])) {
+    $PackageId = $_POST['PackageId'];
 }
 $SectorId = null;
 if (isset($_POST['SectorId'])) {
     $SectorId = $_POST['SectorId'];
 }
-$IS = null;
-if (isset($_POST['IS'])) {
-    $IS = $_POST['IS'];
+$TaxServices = null;
+if (isset($_POST['TaxServices'])) {
+    $TaxServices = $_POST['TaxServices'];
 }
-$IV = null;
-if (isset($_POST['IV'])) {
-    $IV = $_POST['IV'];
+$TaxSales = null;
+if (isset($_POST['TaxSales'])) {
+    $TaxSales = $_POST['TaxSales'];
 }
 $Price = null;
 if (isset($_POST['Price'])) {
     $Price = $_POST['Price'];
 }
-?>
+
+//packages
+$DateNow = date("Y-m-d H:i:s");
+
+$DateStart = $DateNow;
+if (isset($_POST['DateStart'])) {
+    $DateStart = $_POST['DateStart'];
+}
+$DateEnd = $DateNow;
+if (isset($_POST['DateEnd'])) {
+    $DateEnd = $_POST['DateEnd'];
+}
+
+$StartDate = null;
+if (isset($_POST['StartDate'])) {
+    $StartDate = $_POST['StartDate'];
+}
+$EndDate = null;
+if (isset($_POST['EndDate'])) {
+    $EndDate = $_POST['EndDate'];
+}
+
+$Date = date_create($DateNow);
+$Date = date_format($Date, 'Y-m-d');
+if (isset($_POST['Date'])) {
+    $Date = $_POST['Date'];
+}
+$Adults = 2;
+if (isset($_POST['Adults'])) {
+    $Adults = $_POST['Adults'];
+}
+$Childs = 0;
+if (isset($_POST['Childs'])) {
+    $Childs = $_POST['Childs'];
+}
+$PromoCode = null;
+if (isset($_POST['PromoCode'])) {
+    $PromoCode = $_POST['PromoCode'];
+}
+
+//register
+$Prefix = null;
+if (isset($_POST['Prefix'])) {
+    $Prefix = $_POST['Prefix'];
+}
+$CreditTime = null;
+if (isset($_POST['CreditTime'])) {
+    $CreditTime = $_POST['CreditTime'];
+}
+$CreditLimit = null;
+if (isset($_POST['CreditLimit'])) {
+    $CreditLimit = $_POST['CreditLimit'];
+}
+$Balance = null;
+if (isset($_POST['Balance'])) {
+    $Balance = $_POST['Balance'];
+}
+$LastVisit = null;
+if (isset($_POST['LastVisit'])) {
+    $LastVisit = $_POST['LastVisit'];
+}
+$LastBook = null;
+if (isset($_POST['LastBook'])) {
+    $LastBook = $_POST['LastBook'];
+}
+
+//reservations
+$SectorsId = null;
+if (isset($_POST['SectorsId'])) {
+    $SectorsId = $_POST['SectorsId'];
+}
+$CustomersId = null;
+if (isset($_POST['CustomersId'])) {
+    $CustomersId = $_POST['CustomersId'];
+}
+$PackagesId = null;
+if (isset($_POST['PackagesId'])) {
+    $PackagesId = $_POST['PackagesId'];
+}
+$PromosId = null;
+if (isset($_POST['PromosId'])) {
+    $PromosId = $_POST['PromosId'];
+}
+$PaymentAuth = null;
+if (isset($_POST['PaymentAuth'])) {
+    $PaymentAuth = $_POST['PaymentAuth'];
+}
+$SubTotal = null;
+if (isset($_POST['SubTotal'])) {
+    $SubTotal = $_POST['SubTotal'];
+}
+$TaxServices = null;
+if (isset($_POST['TaxServices'])) {
+    $TaxServices = $_POST['TaxServices'];
+}
+$TaxSales = null;
+if (isset($_POST['TaxSales'])) {
+    $TaxSales = $_POST['TaxSales'];
+}
+$Total = null;
+if (isset($_POST['Total'])) {
+    $Total = $_POST['Total'];
+}
+$BillId = null;
+if (isset($_POST['BillId'])) {
+    $BillId = $_POST['BillId'];
+}

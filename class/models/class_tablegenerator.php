@@ -1,11 +1,16 @@
-<?php function class_tableGenerator($array, $params, $formsParams, $formButtons)
+<?php function class_tableGenerator($array, $params, $formsParams, $formButtons, $formFields)
 {
     ?>
 <?php if ($formsParams) {?>
 <form action="<?php echo $formsParams['action']; ?>" method="<?php echo $formsParams['method']; ?>">
+<?php if($formFields){ ?>
+<?php foreach ($formFields as $label => $row) { ?>
+<?php echo class_formInput($row['inputType'], $row['name'], $label, $row['value'], $row['required']);?>
+<?php } ?>
+<?php } ?>
     <?php }?>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <?php echo $params['name'] ?>
@@ -21,6 +26,35 @@
         echo class_formButtons($formButtons_add);
     }
     ?>
+
+<!-- <div id="toolbar" class="btn-group">
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-plus"></i>
+    </button>
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-heart"></i>
+    </button>
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-trash"></i>
+    </button>
+</div>
+<table data-toggle="table"
+       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       data-search="true"
+       data-show-refresh="true"
+       data-show-toggle="true"
+       data-show-columns="true"
+       data-toolbar="#toolbar">
+    <thead>
+    <tr>
+        <th data-field="name">Name</th>
+        <th data-field="stargazers_count">Stars</th>
+        <th data-field="forks_count">Forks</th>
+        <th data-field="description">Description</th>
+    </tr>
+    </thead>
+</table> -->
+
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
@@ -32,13 +66,14 @@
         $array_key = array_keys(current($array));
         foreach ($array_key as $key) {
             if (($key !== 'index') && ($key !== 'status') && ($key !== 'childs')) {
-                $results .= '<th>' . $key . '</th>';
+                $results .= '<th width="0%">' . $key . '</th>';
             }
         }
     }
-
-    $results .= '<th>Actions</th>';
-    echo $results;
+    if ($params['showactions']) {
+        $results .= '<th>Actions</th>';
+        echo $results;
+    }
     ?>
                             </tr>
                         </thead>
@@ -59,25 +94,27 @@
             }
         }
         //actions
-        $results .= '<td>';
-
         if ($params['showactions']) {
-            //Update
-            $results .= '<a href="?action=update&Id=' . $row_array['index'] . '" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm"><i class="fa fa-edit fa-fw" style="font-size:15px;"></i></a>';
-            //Delete
+            $results .= '<td>';
 
-            if (!$row_array['childs']) {
-                $results .= '<a href="?action=delete&Id=' . $row_array['index'] . '" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm"><i class="fa fa-trash-o fa-fw"" style="font-size:15px;"></i></a>';
-            }
+            if ($params['showactions']) {
+                //Update
+                $results .= '<a href="?action=update&Id=' . $row_array['index'] . '" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm"><i class="fa fa-edit fa-fw" style="font-size:15px;"></i></a>';
+                //Delete
 
-            //Show More
-            if ($params['showmore']) {
-                $results .= '<a href="?action=add&Id=' . $row_array['index'] . '" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm"><i class="fa fa-plus fa-fw"" style="font-size:15px;"></i></a>';
+                if (!$row_array['childs']) {
+                    $results .= '<a href="?action=delete&Id=' . $row_array['index'] . '" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm"><i class="fa fa-trash-o fa-fw"" style="font-size:15px;"></i></a>';
+                }
+
+                //Show More
+                if ($params['showmore']) {
+                    $results .= '<a href="?action=add&Id=' . $row_array['index'] . '" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm"><i class="fa fa-plus fa-fw"" style="font-size:15px;"></i></a>';
+                }
             }
-        }
-        $results .= '</td>';
-        $results .= '</tr>';
-        //end actions
+            $results .= '</td>';
+            $results .= '</tr>';
+            //end actions
+        } //end if
 
     } //end foreach
     echo $results;

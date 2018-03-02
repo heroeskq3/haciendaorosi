@@ -20,7 +20,7 @@ define('CONFIG_METAKEYWORDS', 'Si,Definir');
 
 //MYSQL DEFINE ACCESS INFORMATION
 define('CONFIG_MYSQLHOST', 'localhost'); //al tratar de romper la conexion hay un mensaje en javascript que seri abueno replicar para otros fines
-define('CONFIG_MYSQLDB', 'book');
+define('CONFIG_MYSQLDB', 'hacienda_book');
 define('CONFIG_MYSQLUSER', 'root');
 define('CONFIG_MYSQLPASS', '');
 define('CONFIG_MYSQLPORT', ''); //Default 3306

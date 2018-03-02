@@ -64,13 +64,13 @@ class_modals($modalsParams, $modalsButtons);
 <form action="" method="post">
         <div class="f1-buttons">
         <?php
-        //buttons
-        $formButtons = array(
-            'Previous' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' =>'button', 'value' =>'previous', 'action' => 'survey_services.php'),
-            'Next'     => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' =>'button', 'value' =>'next', 'action' => null),
-        );
-        echo class_formButtons($formButtons);
-        ?>
+//buttons
+$formButtons = array(
+    'Previous' => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'previous', 'action' => 'survey_services.php'),
+    'Next'     => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => 'button', 'value' => 'next', 'action' => null),
+);
+echo class_formButtons($formButtons);
+?>
         </div>
 </form>
     </fieldset>

@@ -88,5 +88,7 @@ $formParams = null;
 // define buttons for form
 $formButtons = null;
 
+$formFields = null;
+
 //generate table list
-class_tableGenerator($table_array, $table_params, $formParams, $formButtons);
+class_tableGenerator($table_array, $table_params, $formParams, $formButtons,$formFields);

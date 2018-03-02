@@ -1,7 +1,7 @@
 <?php
-function class_bookPackagesAdd($PackCode, $Name, $Price, $IV, $IS, $VigenciaDel, $VigenciaAl, $SectorId, $Status)
+function class_bookPackagesAdd($PackCode, $Name, $Price, $TaxSales, $TaxSales, $StartDate, $EndDate, $SectorId, $Status)
 {
-    $mysql_query    = "INSERT INTO book_packages (PackCode, Name, Price, IV, `IS`, VigenciaDel, VigenciaAl, SectorId, Status) VALUES('$PackCode', '$Name', '$Price', '$IV', '$IS', '$VigenciaDel', '$VigenciaAl', '$SectorId', '$Status')";
+    $mysql_query    = "INSERT INTO book_packages (PackCode, Name, Price, IV, `IS`, StartDate, EndDate, SectorId, Status) VALUES('$PackCode', '$Name', '$Price', '$TaxSales', '$TaxSales', '$StartDate', '$EndDate', '$SectorId', '$Status')";
     $mysql_database = CONFIG_MYSQLDB;
     $mysql_conn     = conn_mysql();
     $mysql_debug    = 0;

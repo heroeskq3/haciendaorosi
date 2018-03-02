@@ -35,14 +35,28 @@ require_once 'includes/globals.php';
     </head>
 
     <body>
+
         <!-- Top content -->
         <div class="top-content">
             <div class="container">
+                
                 <div class="row">
-                    <div class="col-sm-12 text">
-                        <a href="index.php"><img src="<?php echo PATH_ASSETS . 'img/logos/' . CONFIG_LOGOHEADER; ?>" alt="" width="230"></a>
+                    <div class="col-sm-8 col-sm-offset-2 text">
+                        <a href="index.php"><img src="<?php echo PATH_RESOURCES . 'logos/' . CONFIG_LOGOHEADER; ?>" alt="" width="230"></a>
                     </div>
-                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1 form-box">
+                </div>
+                    <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
                         <div class="f1">
-                            <?php class_headerSteps($step);?>
+                            <?php
+                            $stepsParams = array(
+                                'step_active' => $step,
+                                'labels' => array(
+                                    array('name' => 'Availability', 'icon' => 'fa-clock-o'),
+                                    array('name' => 'Guest information', 'icon' => 'fa-user'),
+                                    array('name' => 'Confirmation', 'icon' => 'fa-check'),
+                                )
+                            );
+                            class_headerSteps($stepsParams);
+                            ?>
                             <fieldset>

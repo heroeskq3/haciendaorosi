@@ -1,3 +1,5 @@
+
+/* step bar*/
 .f1-step.active .f1-step-icon {
     background: #000;
 }
@@ -7,6 +9,8 @@
 .f1-progress-line {
     background: #000;
 }
+
+/* buttons */
 button.btn.btn-next, button.btn.btn-next:focus, button.btn.btn-next:active:focus, button.btn.btn-next.active:focus {
     background: #ea3f33;
 }
@@ -28,4 +32,61 @@ input, textarea, select, textarea.form-control {
 button.btn {
     margin: 3px;
     margin-right: 3px;
+}
+
+.form-box {
+    width: 100%;
+}
+.form-box {
+    padding-top: 5px;
+}
+.col-lg-offset-3 {
+    margin-left: 0%;
+}
+
+/*custom boostrap 5 cols*/
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+.col-sm-15 {
+        width: 5%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+}
+/*table*/
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.table {
+    width: 0%;
 }

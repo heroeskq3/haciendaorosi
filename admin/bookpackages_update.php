@@ -12,7 +12,7 @@ $section_homedir     = '../';
 <?php require_once 'header.php';?>
 <?php
 if ($form_update) {
-    class_bookPackagesUpdate($Id, $PackCode, $Name, $Price, $IV, $IS, $VigenciaDel, $VigenciaAl, $SectorId, $Status);
+    class_bookPackagesUpdate($Id, $PackCode, $Name, $Price, $TaxSales, $TaxSales, $StartDate, $EndDate, $SectorId, $Status);
     header('Location: bookpackages_list.php');
     die();
 }
@@ -49,8 +49,8 @@ $formFields = array(
     'Price'       => array('inputType' => 'text', 'required' => true, 'position' => 1, 'name' => 'Price', 'value' => $row_bookpackagesinfo['Price']),
     'IV'          => array('inputType' => 'select', 'required' => true, 'position' => 1, 'name' => 'IV', 'value' => $array_IV),
     'IS'          => array('inputType' => 'select', 'required' => true, 'position' => 1, 'name' => 'IS', 'value' => $array_IS),
-    'VigenciaDel' => array('inputType' => 'date', 'required' => true, 'position' => 1, 'name' => 'VigenciaDel', 'value' => $row_bookpackagesinfo['VigenciaDel']),
-    'VigenciaAl'  => array('inputType' => 'date', 'required' => true, 'position' => 1, 'name' => 'VigenciaAl', 'value' => $row_bookpackagesinfo['VigenciaAl']),
+    'StartDate' => array('inputType' => 'date', 'required' => true, 'position' => 1, 'name' => 'StartDate', 'value' => $row_bookpackagesinfo['StartDate']),
+    'EndDate'  => array('inputType' => 'date', 'required' => true, 'position' => 1, 'name' => 'EndDate', 'value' => $row_bookpackagesinfo['EndDate']),
     'Sector'      => array('inputType' => 'select', 'required' => true, 'position' => 1, 'name' => 'SectorId', 'value' => $array_sector),
     'Status'      => array('inputType' => 'select', 'required' => true, 'position' => 1, 'name' => 'Status', 'value' => $array_status),
 );

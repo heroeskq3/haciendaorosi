@@ -16,16 +16,24 @@ function class_formButtonsType($type, $class, $name, $value, $action, $label)
     }
 
     if ($type == 'submit') {
-        $results = '<button type="submit" class="' . $class . '">' . $label . '</button>';
+        $results = '<button type="submit" class="' . $class . '" value="'.$value.'"" name="'.$name.'">' . $label . '</button>';
     }
     if ($type == 'link') {
-        $results = '<button type="submit" class="' . $class . '"';
+        $results = '<button type="button" class="' . $class . '"';
         $results .= 'onclick="window.location.href=';
         $results .= "'" . $action . "'";
         $results .= '"';
         $results .= '>' . $label . '</button>';
     }
     if ($type == 'cancel') {
+        $action  = isset($HTTP_REFERER);
+        $results = '<button type="submit" class="' . $class . '"';
+        $results .= 'onclick="window.location.href=';
+        $results .= "'" . $action . "'";
+        $results .= '"';
+        $results .= '>' . $label . '</button>';
+    }
+    if ($type == 'back') {
         $action  = isset($HTTP_REFERER);
         $results = '<button type="submit" class="' . $class . '"';
         $results .= 'onclick="window.location.href=';

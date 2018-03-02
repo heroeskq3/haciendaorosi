@@ -15,6 +15,7 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
     $results .= '<div class="section section-custom billinfo">';
     if ($formParams['name']) {
         $results .= '<h2>' . $formParams['name'] . '</h2>'; //section-title
+        $results .= '<hr>'; //section-title
     }
     $results .= '<form id="validationForm" action="' . $formParams['action'] . '" method="' . $formParams['method'] . '" enctype="' . $formParams['enctype'] . '">';
     $results .= '<div class="pmd-card pmd-z-depth">';
@@ -43,7 +44,10 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
             $results .= '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">';
         }
         if ($row['position'] == 4) {
-            $results .= '<div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">';
+            $results .= '<div class="col-xs-6 col-sm-3 ">';
+        }
+        if ($row['position'] == 5) {
+            $results .= '<div class="col-md-15 col-xs-3">';
         }
 
         if ($row['position']) {
@@ -54,7 +58,14 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
             } elseif ($row['inputType'] == 'image') {
                 //label styles for others inputs
                 $results .= '<div class="form-group pmd-textfield pmd-textfield-floating-label">';
-            } else {
+            } elseif($row['inputType'] == 'submit'){
+                $results .= '<div class="form-group pmd-textfield pmd-textfield-floating-label">';
+                $results .= '<label for="regular1" class="control-label"></label>';
+                $results .= '<br>';
+            } elseif($row['inputType'] == 'field'){
+                $results .= '<div class="col-xs-6 col-md-4">';
+                $results .= '<p>' . $label . '</p>';
+            }else {
                 //label styles for others inputs
                 $results .= '<div class="form-group pmd-textfield pmd-textfield-floating-label">';
                 $results .= '<label for="regular1" class="control-label">' . $label . '</label>';
@@ -75,6 +86,12 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
             echo "<pre>";
             print_r($row['value']);
             exit;
+        }
+        if ($row['inputType'] == 'submit') {
+            $inputButtons = array(
+                $label => array('buttonType' => 'submit', 'class' => 'btn btn-submit', 'name' => $row['name'], 'value' => $row['value'], 'action'=> null),
+            );
+            $results .= class_formButtons($inputButtons);
         }
 
         if ($row['inputType'] == 'image') {
@@ -115,8 +132,11 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
             /* INPUTS START */
             $results .= class_formInput($row['inputType'], $row['name'], $label, $row['value'], $row['required']);
         }
-        $results .= '</div>';
 
+        $results .= '</div>';
+        if ($row['inputType'] == 'field') {
+            $results .= '<div class="col-xs-12 col-md-8">'.$row['value'].'</div>'; //por aqui voy agregar la misma class al label
+        }
         //col position end
         if ($row['position'] == 0) {
             $results .= '</div>';
@@ -153,6 +173,14 @@ function class_formGenerator2($formParams, $formFields, $formButtons)
         if ($row['position'] == 4) {
             $results .= '</div>'; //col end
             if ($pos == 3) {
+                //clearfix end
+                $results .= '</div>';
+                $i = 0; //reset position
+            }
+        }
+        if ($row['position'] == 5) {
+            $results .= '</div>'; //col end
+            if ($pos == 4) {
                 //clearfix end
                 $results .= '</div>';
                 $i = 0; //reset position

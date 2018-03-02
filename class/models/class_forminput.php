@@ -83,7 +83,12 @@ function class_formInput($inputType, $name, $label, $value, $required)
 
     //DATE PICKER INPUT
     if ($inputType=='date') {
+
+        $results .= '<div class="form-group input-group">';
+        $results .= '<span class="input-group-addon"><p class="fa fa-calendar"></p></span>';
         $results .= '<input type="date" class="form-control" min="'.date("Y-m-d").'" name="' . $name . '" value="' . $value . '" '.$required.'>';
+        $results .= '</div>';
+
     }
 
     //TIME PICKER INPUT

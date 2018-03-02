@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='../fullcalendar.min.css' rel='stylesheet' />
+<link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='../lib/moment.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../fullcalendar.min.js'></script>
+<script>
+
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: ''
+        //right: 'month,agendaWeek,agendaDay,listMonth'
+      },
+      defaultDate: '2018-02-12',
+      navLinks: true, // can click day/week names to navigate views
+      businessHours: false, // display business hours
+      editable: false,
+      events: [
+        {
+          start: '2018-02-08',
+          end: '2018-02-06',
+          overlap: true,
+          rendering: 'background',
+          color: '#ff9f89'
+        },
+        {
+          start: '2018-02-07',
+          end: '2018-02-07',
+          overlap: false,
+          rendering: 'background',
+          color: '#FFFF73'
+        },
+        {
+          start: '2018-02-09',
+          end: '2018-02-08',
+          overlap: false,
+          rendering: 'background',
+          color: '#99FF99'
+        }
+      ]
+    });
+
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+</style>
+</head>
+<body>
+
+  <div id='calendar'></div>
+
+</body>
+</html>

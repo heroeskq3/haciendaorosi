@@ -1,7 +1,7 @@
 <?php
-function class_bookPackagesUpdate($Id, $PackCode, $Name, $Price, $IV, $IS, $VigenciaDel, $VigenciaAl, $SectorId, $Status)
+function class_bookPackagesUpdate($Id, $PackCode, $Name, $Price, $TaxSales, $TaxSales, $StartDate, $EndDate, $SectorId, $Status)
 {
-    $mysql_query    = "UPDATE book_packages SET PackCode = '$PackCode', Name = '$Name', Price = '$Price', IV = '$IV', `IS` = '$IS', VigenciaDel = '$VigenciaDel', VigenciaAl = '$VigenciaAl', SectorId = '$SectorId', Status = '$Status' WHERE Id = $Id";
+    $mysql_query    = "UPDATE book_packages SET PackCode = '$PackCode', Name = '$Name', Price = '$Price', IV = '$TaxSales', `IS` = '$TaxSales', StartDate = '$StartDate', EndDate = '$EndDate', SectorId = '$SectorId', Status = '$Status' WHERE Id = $Id";
     $mysql_database = CONFIG_MYSQLDB;
     $mysql_conn     = conn_mysql();
     $mysql_debug    = 0;

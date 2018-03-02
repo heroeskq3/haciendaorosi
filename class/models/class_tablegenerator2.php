@@ -15,6 +15,36 @@ function class_tableGenerator($array, $params)
     //table start
     if($params['rowsbypage']){
         $results .= '<div class="table-responsive">';
+
+$results .= '<div id="toolbar" class="btn-group">
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-plus"></i>
+    </button>
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-heart"></i>
+    </button>
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-trash"></i>
+    </button>
+</div>
+<table data-toggle="table"
+       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       data-search="true"
+       data-show-refresh="true"
+       data-show-toggle="true"
+       data-show-columns="true"
+       data-toolbar="#toolbar">
+    <thead>
+    <tr>
+        <th data-field="name">Name</th>
+        <th data-field="stargazers_count">Stars</th>
+        <th data-field="forks_count">Forks</th>
+        <th data-field="description">Description</th>
+    </tr>
+    </thead>
+</table>
+';
+
         $results .= '<table id="example" class="table pmd-table table-hover table-striped display responsive nowrap" cellspacing="0" width="100%">';
     }else{
         $results .= '<div class="table-responsive pmd-card pmd-z-depth">';

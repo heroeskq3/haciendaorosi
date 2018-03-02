@@ -1,38 +1,43 @@
-<?php function class_headerSteps($step){ ?>
-<?php 
-switch ($step) {
-    case 1:
-        $step_1 = "active";
-        $step_progress = '33';
-        break;
-    case 2:
-        $step_1 = "active";
-        $step_2 = "active";
-        $step_progress = '66';
-        break;
-    case 3:
-        $step_1 = "active";
-        $step_2 = "active";
-        $step_3 = "active";
-        $step_progress = '100';
-        break;
+<?php
+/*
+$stepsParams = array(
+'step_active' => $step,
+'labels' => array(
+array('name' => 'Availability', 'icon' => 'fa-clock-o'),
+array('name' => 'Guest information', 'icon' => 'fa-user'),
+array('name' => 'Confirmation', 'icon' => 'fa-check'),
+)
+);
+ */
+function class_headerSteps($params)
+{
+    $array_count = count($params['labels']);
+    $array_perc  = round(100 / $array_count, 2);
+    $perc_progress = $array_perc*$params['step_active'];
+    ?>
+<style type="text/css">
+.f1-step {
+    width: <?php echo $array_perc; ?>%;
 }
-?>
+</style>
 <div class="f1-steps ">
     <div class="f1-progress">
-        <div class="f1-progress-line" data-now-value="<?php echo $step_progress; ?>" data-number-of-steps="3" style="width: <?php echo $step_progress; ?>%;"></div>
+        <div class="f1-progress-line" data-now-value="<?php echo $perc_progress; ?>" data-number-of-steps="<?php echo $array_count; ?>" style="width: <?php echo $perc_progress; ?>%;"></div>
     </div>
-    <div class="f1-step <?php echo $step_1;?>">
-        <div class="f1-step-icon"><i class="fa fa-key"></i></div>
-        <p>Availability</p>
+<?php
+$i = 1;
+    foreach ($params['labels'] as $row) {
+        $pos = $i++;
+        if ($params['step_active'] >= $pos) {
+            $step_sctive = 'active';
+        } else {
+            $step_sctive = null;
+        }
+        ?>
+    <div class="f1-step <?php echo $step_sctive; ?>">
+        <div class="f1-step-icon"><i class="fa <?php echo $row['icon'] ?>"></i></div>
+        <p><?php echo $row['name'] ?></p>
     </div>
-    <div class="f1-step <?php echo $step_2;?>">
-        <div class="f1-step-icon"><i class="fa fa-user"></i></div>
-        <p>Guest information</p>
-    </div>
-    <div class="f1-step <?php echo $step_3;?>">
-        <div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
-        <p>Confirmation</p>
-    </div>
+<?php }?>
 </div>
-<?php } ?>
+<?php }?>
